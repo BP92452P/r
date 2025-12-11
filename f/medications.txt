@@ -1,0 +1,7 @@
+# medications.txt
+Acetaminophen|flu|Acetaminophen is used to relieve pain and reduce fever.|0-5=120;6-12=240;13-64=500;65-150=400|08:00,20:00
+Ibuprofen|flu|Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used for pain and inflammation.|0-5=100;6-12=200;13-64=400;65-150=300|08:00,20:00
+Acetaminophen|common cold|Acetaminophen helps reduce fever and relieve minor aches associated with colds.|0-5=120;6-12=240;13-64=500;65-150=400|09:00,21:00
+Sumatriptan|migraine|Sumatriptan is used to treat migraine attacks by narrowing blood vessels and reducing inflammation.|13-64=50;65-150=25|07:00
+Penicillin|strep throat|Penicillin is an antibiotic used to treat bacterial infections like strep throat.|6-12=250;13-64=500;65-150=500|08:00,20:00
+Loratadine|allergies|Loratadine is an antihistamine used to relieve allergy symptoms such as sneezing and runny nose.|6-12=5;13-64=10;65-150=10|08:00
