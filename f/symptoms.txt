@@ -1,6 +1,0 @@
-# symptoms.txt
-Flu|fever,cough,body aches,fatigue,headache,chills
-Common Cold|sneezing,runny nose,cough,sore throat,congestion
-Migraine|headache,sensitivity to light,nausea,aura,throbbing pain
-Strep Throat|sore throat,fever,swollen lymph nodes,painful swallowing,red throat
-Allergies|sneezing,itchy eyes,runny nose,congestion,post-nasal drip
