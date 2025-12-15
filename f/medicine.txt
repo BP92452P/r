@@ -1,0 +1,3 @@
+Viracure|A fictional antiviral developed to treat flu-like viral infections.
+Chillban|A fictional medicine created to reduce cold symptoms.
+GastroFix|A fictional treatment used for stomach-related illnesses.
