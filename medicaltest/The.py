@@ -1,132 +1,88 @@
-# --------------------------------------------------
-# DISCLAIMER:
-# This program is for educational purposes only.
-# It does NOT provide real medical advice.
-# All illnesses and medicines are fictional.
-# --------------------------------------------------
+# The.py
+# Computer Science Final Project
 
-import os
+# ---------------- FUNCTIONS ---------------- #
 
-# ---------- FILE LOADING FUNCTION ----------
-
-def load_simple_file(filename):
+def load_file(filename):
     data = {}
-
-    try:
-        file = open(filename, "r")
-    except:
-        print("Error: Could not open", filename)
-        return data
-
+    file = open(filename, "r")
     for line in file:
         line = line.strip()
-
-        if line == "":
-            continue
-
-        parts = line.split("|")
-
-        if len(parts) < 2:
-            continue
-
-        key = parts[0].strip().lower()
-        values = parts[1:]
-
-        data[key] = values
-
+        if ":" in line:
+            key, value = line.split(":", 1)
+            data[key.strip()] = value.strip()
     file.close()
     return data
 
 
-# ---------- SYMPTOM SCORING DIAGNOSIS ----------
+def determine_age_group(age):
+    if age < 13:
+        return "child"
+    else:
+        return "adult"
 
-def diagnose(symptoms):
-    illness_symptoms = {
-        "flulike": ["fever", "cough", "fatigue", "body aches"],
-        "coldlike": ["sneezing", "runny nose", "sore throat"],
-        "stomachbug": ["nausea", "vomiting", "stomach pain"]
+
+def determine_sickness(symptoms):
+    scores = {
+        "Flu": 0,
+        "Cold": 0,
+        "Allergy": 0
     }
 
-    scores = {}
+    for symptom in symptoms:
+        if symptom in ["fever", "body ache", "chills"]:
+            scores["Flu"] += 1
+        if symptom in ["cough", "sore throat", "runny nose"]:
+            scores["Cold"] += 1
+        if symptom in ["sneezing", "itchy eyes", "runny nose"]:
+            scores["Allergy"] += 1
 
-    for illness in illness_symptoms:
-        score = 0
-        for symptom in illness_symptoms[illness]:
-            if symptom in symptoms:
-                score += 1
-        scores[illness] = score
-
-    # Find illness with highest score
-    best_illness = "unknown"
-    highest_score = 0
-
-    for illness in scores:
-        if scores[illness] > highest_score:
-            highest_score = scores[illness]
-            best_illness = illness
-
-    if highest_score == 0:
-        return "unknown"
-    else:
-        return best_illness
+    return max(scores, key=scores.get)
 
 
-# ---------- MAIN PROGRAM ----------
+def get_medicine(sickness):
+    if sickness == "Flu":
+        return "Tylenol"
+    elif sickness == "Cold":
+        return "CoughSyrup"
+    elif sickness == "Allergy":
+        return "Antihistamine"
 
-print("Welcome to the Diagnosis Simulator")
-print("----------------------------------")
 
-# Get age
+# ---------------- MAIN PROGRAM ---------------- #
+
+print("Welcome to the Medical Diagnosis Program")
+
 age = int(input("Enter your age: "))
+age_group = determine_age_group(age)
 
-# Get symptoms
-symptom_input = input("Enter your symptoms separated by commas: ")
-symptoms = symptom_input.lower().split(",")
+symptom_input = input("Enter your symptoms (comma separated): ")
+symptoms = symptom_input.lower().split(", ")
 
-for i in range(len(symptoms)):
-    symptoms[i] = symptoms[i].strip()
+sickness = determine_sickness(symptoms)
+medicine = get_medicine(sickness)
 
-# Get base directory (works on any computer)
-base_dir = os.path.dirname(__file__)
+medicines = load_file("medicine.txt")
+schedules = load_file("schedule.txt")
+definitions = load_file("definitions.txt")
 
-medicine_file = os.path.join(base_dir, "medicine.txt")
-definitions_file = os.path.join(base_dir, "definitions.txt")
-schedule_file = os.path.join(base_dir, "schedule.txt")
+# Dosage
+dosage_info = medicines[medicine].split(", ")
+dosage = dosage_info[0] if age_group == "child" else dosage_info[1]
 
-# Load data files
-medicine_data = load_simple_file(medicine_file)
-definitions = load_simple_file(definitions_file)
-schedules = load_simple_file(schedule_file)
+# Schedule
+schedule_info = schedules[medicine].split(" | ")
+schedule = schedule_info[0] if age_group == "child" else schedule_info[1]
 
-# Diagnose illness
-illness = diagnose(symptoms)
+# Definition
+definition = definitions[medicine]
 
-print("\nDiagnosis Result")
-print("----------------")
+# ---------------- OUTPUT ---------------- #
 
-if illness == "unknown":
-    print("No matching illness found.")
-    print("Please consult a real doctor.")
-else:
-    medicine_info = medicine_data.get(illness)
-
-    if medicine_info is None:
-        print("No medicine data available.")
-    else:
-        medicine_name = medicine_info[0]
-
-        print("Likely illness:", illness.capitalize())
-        print("Recommended medicine:", medicine_name)
-
-        # Definition
-        if medicine_name.lower() in definitions:
-            print("\nMedicine Information:")
-            print(definitions[medicine_name.lower()][0])
-
-        # Dosage Schedule
-        if medicine_name.lower() in schedules:
-            print("\nDosage Schedule:")
-            if age < 18:
-                print(schedules[medicine_name.lower()][0])
-            else:
-                print(schedules[medicine_name.lower()][1])
+print("\n--- Diagnosis Result ---")
+print("Sickness:", sickness)
+print("Recommended Medicine:", medicine)
+print("Dosage:", dosage)
+print("Weekly Schedule:", schedule)
+print("\nMedicine Information:")
+print(definition)
