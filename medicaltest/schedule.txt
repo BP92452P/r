@@ -1,4 +1,4 @@
-Tylenol: Morning and Night | Morning, Afternoon, and Night
-Ibuprofen: Morning and Night | Every 6 hours
-CoughSyrup: Before Bed | Morning and Night
-Antihistamine: Once Daily | Once Daily
+Tylenol: Morning and night | Morning, afternoon, and night
+Ibuprofen: Morning and night | Every 6 hours
+CoughSyrup: Before bed | Morning and night
+Antihistamine: Once daily | Once daily

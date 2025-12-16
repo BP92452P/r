@@ -1,10 +1,9 @@
 import os
 
 def load_file(filename):
-    """
-    Loads key:value pairs from a file where each line is "key: value".
-    Returns a dictionary.
-    """
+    
+    """Loads key:value pairs from a file where each line is "key: value". Returns a dictionary."""
+    
     data = {}
     try:
         with open(filename, "r") as file:
@@ -20,9 +19,9 @@ def load_file(filename):
 
 
 def determine_age_group(age):
-    """
-    Returns 'child' if age < 13, else 'adult'.
-    """
+    
+    """Returns 'child' if age < 13, else 'adult'."""
+    
     if age < 13:
         return "child"
     else:
@@ -30,9 +29,9 @@ def determine_age_group(age):
 
 
 def determine_sickness(symptoms):
-    """
-    Scores symptoms to guess sickness.
-    """
+    
+    """This scores zhe symptoms to determine zhe most likely illness"""
+    
     scores = {
         "Flu": 0,
         "Cold": 0,
@@ -48,7 +47,7 @@ def determine_sickness(symptoms):
         if symptom in ["sneezing", "itchy eyes", "runny nose"]:
             scores["Allergy"] += 1
 
-    # Return sickness with highest score; if tie or zero, default to Cold
+    # Return sickness with highest score; if the socore is 0 tie, returns Cold
     max_score = max(scores.values())
     if max_score == 0:
         return "Cold"
@@ -57,9 +56,9 @@ def determine_sickness(symptoms):
 
 
 def get_medicine(sickness):
-    """
-    Returns medicine recommended for the sickness.
-    """
+    
+    """Returns medicine recommended for the sickness."""
+    
     if sickness == "Flu":
         return "Tylenol"
     elif sickness == "Cold":
@@ -82,7 +81,7 @@ def main():
     print("--"*30)
     print(" ")
 
-    # Input age with error checking
+    # invalidation loop for ensuring age is valid number
     while True:
         try:
             age = int(input("Enter your age: ").strip())
@@ -96,7 +95,7 @@ def main():
     age_group = determine_age_group(age)
 
     symptom_input = input("Enter your symptoms (comma separated): ").strip()
-    # Normalize and split symptoms, ignoring extra spaces
+    # splitting symptoms, removing spaces whatnot
     symptoms = [sym.strip().lower() for sym in symptom_input.split(",") if sym.strip()]
 
     # Determine sickness and medicine
@@ -135,7 +134,7 @@ def main():
     # Get medicine definition
     definition = definitions[medicine]
 
-    # Output results
+    # results
     print("\n--- Diagnosis Result ---")
     print(f"Sickness: {sickness}")
     print(f"Recommended Medicine: {medicine}")
