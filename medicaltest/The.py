@@ -71,8 +71,16 @@ def get_medicine(sickness):
 
 
 def main():
-    print("Welcome to the Medical Diagnosis Program")
+    print(" ")
+    print("              Welcome to the Medical Diagnosis Program")
     print("--"*30)
+    print(" ")
+    print("The symptoms registered are as follows: ")
+    print(" ")
+    print("Fever, body ache, chills, sore throat, cough, runny nose, sneezing, itchy eyes")
+    print(" ")
+    print("--"*30)
+    print(" ")
 
     # Input age with error checking
     while True:
