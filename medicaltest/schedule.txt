@@ -2,4 +2,4 @@ Tylenol: Morning and night | Morning, afternoon, and night
 Talk to Chris Redfield: Everytime you get bit | Ingest or spray herbs
 CoughSyrup: Before bed | Morning and night
 Antihistamine: Once daily | Once daily
-PeptoBismol: After meals | After meals and before bed
+Reject: After every orange fanta | Now what...
