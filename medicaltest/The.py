@@ -4,7 +4,7 @@ VALID_SYMPTOMS = {
     "fever", "body ache", "chills", "sore throat", "cough",
     "runny nose", "sneezing", "itchy eyes", "nausea",
     "vomiting", "diarrhea", "stomach pain", "headache",
-    "migraine", "sensitivity to light"
+    "itchy skin", "immense hunger"
 }
 
 
@@ -45,7 +45,7 @@ def determine_sickness(symptoms):
         "Cold": 0,
         "Allergy": 0,
         "StomachAche": 0,
-        "Headache": 0
+        "T-Virus": 0
     }
     
 
@@ -59,8 +59,8 @@ def determine_sickness(symptoms):
             scores["Allergy"] += 1
         if symptom in ["nausea", "vomiting", "diarrhea", "stomach pain"]:
             scores["StomachAche"] += 1
-        if symptom in ["headache", "migraine", "sensitivity to light"]:
-            scores["Headache"] += 1
+        if symptom in ["headache", "itchy skin", "immense hunger"]:
+            scores["T-Virus"] += 1
         
 
 
@@ -84,8 +84,8 @@ def get_medicine(sickness):
         return "Antihistamine"
     elif sickness == "StomachAche":
         return "PeptoBismol"
-    elif sickness == "Headache":
-        return "Ibuprofen"
+    elif sickness == "T-Virus":
+        return "Talk to Chris Redfield"
    
     else:
         return None
@@ -98,7 +98,7 @@ def main():
     print(" ")
     print("The symptoms registered are as follows: ")
     print(" ")
-    print("Fever, body ache, chills, sore throat, cough, runny nose, sneezing, itchy eyes, nausea, vomiting, diarrhea, stomach pain, headache, migraine, sensitivity to light")
+    print("Fever, body ache, chills, sore throat, cough, runny nose, sneezing, itchy eyes, nausea, vomiting, diarrhea, stomach pain, headache, itchy skin, immense hunger")
     print(" ")
     print("--"*30)
     print(" ")

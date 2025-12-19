@@ -1,6 +1,5 @@
 Tylenol: 250mg, 500mg
-Ibuprofen: 200mg, 400mg
+Talk to Chris Redfield: 200mg of crushed green herbs + red herbs, 400mg of crushed green herbs + red herbs
 CoughSyrup: 5ml, 10ml
 Antihistamine: 5mg, 10mg
-Ibuprofen: 200mg, 400mg
 PeptoBismol: 5ml, 10ml

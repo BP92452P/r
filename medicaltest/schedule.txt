@@ -1,6 +1,5 @@
 Tylenol: Morning and night | Morning, afternoon, and night
-Ibuprofen: Morning and night | Every 6 hours
+Talk to Chris Redfield: Everytime you get bit | Ingest or spray herbs
 CoughSyrup: Before bed | Morning and night
 Antihistamine: Once daily | Once daily
-Ibuprofen: Morning and night | Every 6 hours
 PeptoBismol: After meals | After meals and before bed
