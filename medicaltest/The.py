@@ -1,5 +1,7 @@
 import os
 
+
+
 def load_file(filename):
     
     """Loads key:value pairs from a file where each line is "key: value". Returns a dictionary."""
@@ -158,5 +160,71 @@ def main():
     print(definition)
 
 
+class Patient:
+    def __init__(self, age, symptoms):
+        self.age = age
+        self.symptoms = symptoms
+        self.age_group = determine_age_group(age)
+        self.sickness = determine_sickness(symptoms)
+        self.medicine = get_medicine(self.sickness)
+
+    def display_summary(self):
+        print("\n--- Patient Summary ---")
+        print(f"Age: {self.age} ({self.age_group})")
+        print(f"Symptoms: {', '.join(self.symptoms)}")
+        print(f"Diagnosed Sickness: {self.sickness}")
+        print(f"Recommended Medicine: {self.medicine}")
+
+
+class DiagnosisSystem:
+    def __init__(self, script_dir):
+        self.medicines = load_file(os.path.join(script_dir, "medicine.txt"))
+        self.schedules = load_file(os.path.join(script_dir, "schedule.txt"))
+        self.definitions = load_file(os.path.join(script_dir, "definitions.txt"))
+
+    def get_dosage(self, medicine, age_group):
+        dosage_info = self.medicines[medicine].split(",")
+        dosage_info = [d.strip() for d in dosage_info]
+        return dosage_info[0] if age_group == "child" else dosage_info[1]
+
+    def get_schedule(self, medicine, age_group):
+        schedule_info = self.schedules[medicine].split("|")
+        schedule_info = [s.strip() for s in schedule_info]
+        return schedule_info[0] if age_group == "child" else schedule_info[1]
+
+    def get_definition(self, medicine):
+        return self.definitions[medicine]
+
+
+def run_with_classes():
+    print("\nExample of our program")
+    # pythons run
+    age = 4
+    symptoms = ["cough", "fever"]
+
+    patient = Patient(age, symptoms)
+    patient.display_summary()
+
+    system = DiagnosisSystem(os.path.dirname(os.path.abspath(__file__)))
+
+    if patient.medicine in system.medicines:
+        dosage = system.get_dosage(patient.medicine, patient.age_group)
+        schedule = system.get_schedule(patient.medicine, patient.age_group)
+        definition = system.get_definition(patient.medicine)
+
+        print("\n--- Example results ---")
+        print(f"Sickness: {patient.sickness}")
+        print(f"Medicine: {patient.medicine}")
+        print(f"Dosage: {dosage}")
+        print(f"Schedule: {schedule}")
+        print(f"Definition: {definition}")
+    else:
+        print(f"Medicine '{patient.medicine}' not found in files.")
+        print("Hi")
+
 if __name__ == "__main__":
+     
+    run_with_classes()
+    
     main()
+
