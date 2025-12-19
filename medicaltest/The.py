@@ -35,8 +35,11 @@ def determine_sickness(symptoms):
     scores = {
         "Flu": 0,
         "Cold": 0,
-        "Allergy": 0
+        "Allergy": 0,
+        "StomachAche": 0,
+        "Headache": 0
     }
+    
 
     for symptom in symptoms:
         symptom = symptom.lower()
@@ -46,6 +49,11 @@ def determine_sickness(symptoms):
             scores["Cold"] += 1
         if symptom in ["sneezing", "itchy eyes", "runny nose"]:
             scores["Allergy"] += 1
+        if symptom in ["nausea", "vomiting", "diarrhea", "stomach pain"]:
+            scores["StomachAche"] += 1
+        if symptom in ["headache", "migraine", "sensitivity to light"]:
+            scores["Headache"] += 1
+
 
     # Return sickness with highest score; if the socore is 0 tie, returns Cold
     max_score = max(scores.values())
@@ -65,6 +73,11 @@ def get_medicine(sickness):
         return "CoughSyrup"
     elif sickness == "Allergy":
         return "Antihistamine"
+    elif sickness == "StomachAche":
+        return "PeptoBismol"
+    elif sickness == "Headache":
+        return "Ibuprofen"
+   
     else:
         return None
 
@@ -76,7 +89,7 @@ def main():
     print(" ")
     print("The symptoms registered are as follows: ")
     print(" ")
-    print("Fever, body ache, chills, sore throat, cough, runny nose, sneezing, itchy eyes")
+    print("Fever, body ache, chills, sore throat, cough, runny nose, sneezing, itchy eyes, nausea, vomiting, diarrhea, stomach pain, headache, migraine, sensitivity to light")
     print(" ")
     print("--"*30)
     print(" ")

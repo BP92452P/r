@@ -2,3 +2,5 @@ Tylenol: 250mg, 500mg
 Ibuprofen: 200mg, 400mg
 CoughSyrup: 5ml, 10ml
 Antihistamine: 5mg, 10mg
+Ibuprofen: 200mg, 400mg
+PeptoBismol: 5ml, 10ml

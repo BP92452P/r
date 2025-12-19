@@ -2,3 +2,5 @@ Tylenol: Morning and night | Morning, afternoon, and night
 Ibuprofen: Morning and night | Every 6 hours
 CoughSyrup: Before bed | Morning and night
 Antihistamine: Once daily | Once daily
+Ibuprofen: Morning and night | Every 6 hours
+PeptoBismol: After meals | After meals and before bed

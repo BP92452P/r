@@ -2,3 +2,5 @@ Tylenol: Tylenol is commonly used to relieve pain and reduce fever. It has been 
 Ibuprofen: Ibuprofen is a nonsteroidal anti-inflammatory drug that helps reduce pain, swelling, and fever.
 CoughSyrup: Cough syrup helps suppress coughing and soothe throat irritation.
 Antihistamine: Antihistamines are used to relieve allergy symptoms such as sneezing, itching, and runny nose.
+Ibuprofen: Ibuprofen is a nonsteroidal anti-inflammatory drug that helps reduce pain, swelling, and fever.
+PeptoBismol: Pepto-Bismol helps relieve upset stomach, nausea, heartburn, indigestion, and diarrhea.
