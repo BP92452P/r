@@ -1,5 +1,11 @@
 import os
 
+VALID_SYMPTOMS = {
+    "fever", "body ache", "chills", "sore throat", "cough",
+    "runny nose", "sneezing", "itchy eyes", "nausea",
+    "vomiting", "diarrhea", "stomach pain", "headache",
+    "migraine", "sensitivity to light"
+}
 
 
 def load_file(filename):
@@ -55,6 +61,7 @@ def determine_sickness(symptoms):
             scores["StomachAche"] += 1
         if symptom in ["headache", "migraine", "sensitivity to light"]:
             scores["Headache"] += 1
+        
 
 
     # Return sickness with highest score; if the socore is 0 tie, returns Cold
@@ -109,10 +116,22 @@ def main():
 
     age_group = determine_age_group(age)
 
-    symptom_input = input("Enter your symptoms (comma separated): ").strip()
-    # splitting symptoms, removing spaces whatnot
-    symptoms = [sym.strip().lower() for sym in symptom_input.split(",") if sym.strip()]
 
+
+    while True:
+    
+        symptom_input = input("Enter your symptoms (comma separated): ").strip()
+        # splitting symptoms, removing spaces whatnot
+        symptoms = [sym.strip().lower() for sym in symptom_input.split(",") if sym.strip()]
+        invalid = [s for s in symptoms if s not in VALID_SYMPTOMS]
+        if invalid:
+            print(f"Invalid symptoms entered: {', '.join(invalid)}")
+            print("Please try again using only registered symptoms.")
+            continue
+        else:
+            break
+   
+   
     # Determine sickness and medicine
     sickness = determine_sickness(symptoms)
     medicine = get_medicine(sickness)
